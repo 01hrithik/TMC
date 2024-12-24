@@ -1,0 +1,156 @@
+/* Global Styles */
+:root {
+    --primary-color: #2e3b4e;
+    --secondary-color: #ffffff;
+    --accent-color: #ffcc00;
+    --background-gradient: linear-gradient(135deg, #3c4f6e, #2e3b4e);
+    --footer-bg-color: #1b1b1b;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background-gradient);
+    color: var(--secondary-color);
+    animation: fadeIn 1s ease-in-out;
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+nav a {
+    color: var(--accent-color);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffa500;
+}
+
+/* Container */
+.container {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    width: 45%;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.8s ease-in-out;
+}
+
+.dashboard-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: #ffa500;
+    transform: scale(1.1);
+}
+
+/* Task Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+li:hover {
+    background: #ffcc00;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: #e0e0e0;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0;
+    background: #28a745;
+    border-radius: 15px;
+    transition: width 0.5s ease;
+}
+
+#progress-percentage {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: var(--footer-bg-color);
+    color: var(--accent-color);
+    text-align: center;
+    padding: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

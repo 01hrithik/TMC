@@ -1,0 +1,110 @@
+/* Global Styles */
+:root {
+    --primary-color: #2e3b4e;
+    --secondary-color: #ffffff;
+    --accent-color: #ffcc00;
+    --background-gradient: linear-gradient(135deg, #3c4f6e, #2e3b4e);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background-gradient);
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    color: var(--accent-color);
+}
+
+/* Progress Bar */
+.progress-section {
+    margin-bottom: 30px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background: #ddd;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    border-radius: 20px;
+    transition: width 1s ease-in-out;
+}
+
+#progress-percentage {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Tasks */
+.tasks {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+li:hover {
+    background: #ffcc00;
+}
+
+/* Add Task Button */
+.add-task button {
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.add-task button:hover {
+    background: #ffa500;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,128 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dark Theme Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #121212; /* Dark background */
+    color: #EAEAEA; /* Light text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: #1E1E1E; /* Dark form background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #EAEAEA; /* Light color for heading */
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Input Group Styles */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #B0B0B0; /* Light gray label */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #333; /* Dark border */
+    border-radius: 5px;
+    background-color: #333; /* Dark background for input */
+    color: #EAEAEA; /* Light text color in input */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #00BFFF; /* Light blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    font-size: 14px;
+    color: #00BFFF; /* Light blue for links */
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #00BFFF; /* Light blue button */
+    color: #121212; /* Dark text color for contrast */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00A1CC; /* Darker blue on hover */
+}
+
+/* Sign Up Link */
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #00BFFF; /* Light blue for sign-up links */
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 30px;
+    }
+}
