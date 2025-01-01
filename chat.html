@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Management - Chat</title>
+  <link rel="stylesheet" href="chat.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Team Management</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="progress.html">Projects</a></li>
+      <li><a href="chat.html">Chat</a></li>
+    </ul>
+  </header>
+
+  <!-- Chat Section -->
+  <section class="chat-section">
+    <div class="chat-container">
+      <!-- Contact List -->
+      <div class="contact-list">
+        <h3>Contacts</h3>
+        <ul>
+          <li data-contact="Admin" class="contact active">
+            <span>Admin</span>
+            <div class="notification"></div>
+          </li>
+          <li data-contact="John Doe" class="contact">
+            <span>John Doe</span>
+            <div class="notification"></div>
+          </li>
+          <li data-contact="Jane Smith" class="contact">
+            <span>Jane Smith</span>
+            <div class="notification"></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Chat Box -->
+      <div class="chat-box">
+        <div class="chat-header">
+          <h3 id="chatWith">Admin</h3>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input">
+          <input type="text" id="messageInput" placeholder="Type your message...">
+          <button id="sendMessage">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 Team Management. All rights reserved.</p>
+  </footer>
+
+  <script src="chat.js"></script>
+</body>
+</html>

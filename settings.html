@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <header>
+        <h1>Task Management Settings</h1>
+    </header>
+
+    <main>
+        <section class="settings-section" id="general-settings">
+            <h2 onclick="toggleSection('general-settings')">General Settings</h2>
+            <div class="content">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username">
+                <button onclick="saveSettings('general')">Save</button>
+            </div>
+        </section>
+
+        <section class="settings-section" id="notification-settings">
+            <h2 onclick="toggleSection('notification-settings')">Notification Preferences</h2>
+            <div class="content">
+                <label>
+                    <input type="checkbox" id="email-notifications">
+                    Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" id="sms-notifications">
+                    SMS Notifications
+                </label>
+                <button onclick="saveSettings('notifications')">Save</button>
+            </div>
+        </section>
+
+        <section class="settings-section" id="theme-settings">
+            <h2 onclick="toggleSection('theme-settings')">Theme Options</h2>
+            <div class="content">
+                <label>
+                    <input type="radio" name="theme" value="light" checked>
+                    Light Theme
+                </label>
+                <label>
+                    <input type="radio" name="theme" value="dark">
+                    Dark Theme
+                </label>
+                <button onclick="saveSettings('theme')">Save</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Task Management System</p>
+    </footer>
+
+    <script src="settings.js"></script>
+</body>
+</html>

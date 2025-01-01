@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Management - People</title>
+  <link rel="stylesheet" href="people.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Team Management</div>
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">People</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+  </header>
+
+  <!-- Title Section -->
+  <section class="title-section">
+    <h1>Our Team</h1>
+    <p>Meet the people driving success in our projects</p>
+  </section>
+
+  <!-- Team Members Section -->
+  <section class="team-section">
+    <div class="team-card" data-name="John Doe" data-role="Project Manager" data-email="john.doe@example.com">
+      <img src="img/beautiful-cartoon-woman-portrait_23-2151839660.jpg" alt="John Doe">
+      <h3>John Doe</h3>
+      <p>Project Manager</p>
+    </div>
+
+    <div class="team-card" data-name="Jane Smith" data-role="Software Developer" data-email="jane.smith@example.com">
+      <img src="img/fashion-illustration-cute-girl-glasses-with-touch-light-crimson-amber_899449-290381.jpg" alt="Jane Smith">
+      <h3>Jane Smith</h3>
+      <p>Software Developer</p>
+    </div>
+
+    <div class="team-card" data-name="Sam Wilson" data-role="QA Engineer" data-email="sam.wilson@example.com">
+      <img src="img/neopop-illustration-portraying-girl-with-orange-hair-glasses_899449-283027.jpg" alt="Sam Wilson">
+      <h3>Sam Wilson</h3>
+      <p>QA Engineer</p>
+    </div>
+
+    <div class="team-card" data-name="Emily Davis" data-role="UI/UX Designer" data-email="emily.davis@example.com">
+      <img src="img/realistic-portrait-emily-girl-glasses-holding-coffee_899449-189972.jpg" alt="Emily Davis">
+      <h3>Emily Davis</h3>
+      <p>UI/UX Designer</p>
+    </div>
+  </section>
+
+  <!-- Member Details Modal -->
+  <div class="modal" id="memberModal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="memberName"></h2>
+      <p><strong>Role:</strong> <span id="memberRole"></span></p>
+      <p><strong>Email:</strong> <span id="memberEmail"></span></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Team Management. All rights reserved.</p>
+  </footer>
+
+  <script src="people.js"></script>
+</body>
+</html>

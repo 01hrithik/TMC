@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt Chart</title>
+    <link rel="stylesheet" href="gantt.css">
+</head>
+<body>
+    <div class="gantt-page">
+        <!-- Header -->
+        <header class="header">
+            <h1>Gantt Chart</h1>
+            <button class="add-task-btn" onclick="openAddTaskModal()">+ Add Task</button>
+        </header>
+
+        <!-- Gantt Chart -->
+        <section class="gantt-section">
+            <table class="gantt-table">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Assignee(s)</th>
+                        <th>Start Date</th>
+                        <th>Due Date</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody id="ganttTableBody">
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add Task Modal -->
+        <div class="modal" id="addTaskModal">
+            <div class="modal-content">
+                <h2>Add New Task</h2>
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" placeholder="Enter task name">
+
+                <label for="assignees">Assignees:</label>
+                <input type="text" id="assignees" placeholder="Enter assignee names">
+
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate">
+
+                <label for="dueDate">Due Date:</label>
+                <input type="date" id="dueDate">
+
+                <button class="save-btn" onclick="addTask()">Save</button>
+                <button class="close-btn" onclick="closeAddTaskModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="gantt.js"></script>
+</body>
+</html>

@@ -100,9 +100,15 @@ h2 {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.btn a{
+    text-decoration: none;
+}
 .btn:hover {
     background-color: #00A1CC; /* Darker blue on hover */
+}
+
+.btn a:hover {
+    color: white;
 }
 
 /* Sign Up Link */

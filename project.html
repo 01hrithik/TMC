@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <div class="project-page">
+        <!-- Header -->
+        <header class="header">
+            <h1>Project Management</h1>
+            <button class="add-project-btn" onclick="openAddProjectModal()">+ Add Project</button>
+        </header>
+
+        <!-- Project Table -->
+        <section class="project-table-section">
+            <h2>Active Projects</h2>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project Name</th>
+                        <th>Status</th>
+                        <th>Manager</th>
+                        <th>Assignees</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTableBody">
+                    <!-- Projects will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add Project Modal -->
+        <div class="modal" id="addProjectModal">
+            <div class="modal-content">
+                <h2>Add New Project</h2>
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" placeholder="Enter project name">
+                
+                <label for="status">Status:</label>
+                <select id="status">
+                    <option value="Not Started">Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                
+                <label for="manager">Manager:</label>
+                <input type="text" id="manager" placeholder="Enter manager name">
+                
+                <label for="assignees">Assignees:</label>
+                <input type="text" id="assignees" placeholder="Enter assignee names">
+                
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate">
+                
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate">
+                
+                <button class="save-btn" onclick="addProject()">Save</button>
+                <button class="close-btn" onclick="closeAddProjectModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="project.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 // Admin login credentials (for simplicity, mock credentials)
 const adminCredentials = {
-    username: "admin",
+    username: "example@gmail.com",
     password: "admin123",
 };
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Page</title>
+    <link rel="stylesheet" href="file.css">
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload</h1>
+
+        <!-- File Upload Section -->
+        <div class="upload-section">
+            <input type="file" id="fileInput" multiple onchange="handleFileUpload()" />
+            <button onclick="document.getElementById('fileInput').click();">Choose Files</button>
+        </div>
+
+        <!-- Uploaded Files List -->
+        <div id="fileList" class="file-list">
+            <h2>Uploaded Files</h2>
+            <ul id="fileDisplay"></ul>
+        </div>
+    </div>
+
+    <script src="file.js"></script>
+</body>
+</html>

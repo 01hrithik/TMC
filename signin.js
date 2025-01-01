@@ -1,3 +1,11 @@
+window.onload = function () {
+    // Check if the page is being refreshed
+    if (performance.navigation.type === 1) {
+      window.location.href = "home.html";
+    }
+  };
+  
+
 function validateForm(event) {
     event.preventDefault(); // Prevent form submission for validation
 
@@ -15,8 +23,7 @@ function validateForm(event) {
         return false;
     }
 
-    alert("Sign In Successful!");
-    return true; // Proceed with form submission if valid
+    
 }
 
 function validateEmail(email) {

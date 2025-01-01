@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Management Report</title>
+  <link rel="stylesheet" href="report.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Team Report</div>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="project.html">Projects</a></li>
+      <li><a href="report.html">Reports</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <!-- Title Section -->
+    <section class="title-section">
+      <h1 class="title">Team Management Report</h1>
+      <p class="subtitle">An overview of team performance and project progress</p>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section">
+      <div class="summary-card">
+        <h3>Total Tasks</h3>
+        <p class="value">125</p>
+      </div>
+      <div class="summary-card">
+        <h3>Completed Tasks</h3>
+        <p class="value">89</p>
+      </div>
+      <div class="summary-card">
+        <h3>Pending Tasks</h3>
+        <p class="value">36</p>
+      </div>
+      <div class="summary-card">
+        <h3>Team Members</h3>
+        <p class="value">8</p>
+      </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section">
+      <div class="chart-container">
+        <h3>Task Completion</h3>
+        <canvas id="taskCompletionChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Team Productivity</h3>
+        <canvas id="productivityChart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Team Management Report. All rights reserved.</p>
+  </footer>
+
+  <script src="report.js"></script>
+</body>
+</html>

@@ -1,47 +1,49 @@
-// Admin Tasks Management
-function addAdminTask() {
-    const task = prompt("Enter a new admin task:");
-    if (task) {
-        const taskList = document.getElementById("admin-task-list");
-        const newTask = document.createElement("li");
-        newTask.textContent = task;
-        newTask.onclick = () => completeTask(newTask);
-        taskList.appendChild(newTask);
-        updateProgress();
+// Initialize Chart.js Charts
+const chartsData = [
+    {
+      id: 'completion-rate',
+      type: 'doughnut',
+      labels: ['Completed', 'Pending'],
+      data: [75, 25],
+      colors: ['#4caf50', '#e0e0e0']
+    },
+    {
+      id: 'work-hours',
+      type: 'doughnut',
+      labels: ['Utilized', 'Remaining'],
+      data: [2169, 531],
+      colors: ['#42a5f5', '#e0e0e0']
+    },
+    {
+        id: 'morale-index',
+        type: 'doughnut',
+        labels: ['Morale'],
+        data: [3.8],
+        colors: ['#ff9800']
+      },
+    {
+      id: 'team-roles',
+      type: 'pie',
+      labels: ['Developer', 'Designer', 'QA', 'Support'],
+      data: [50, 20, 20, 10],
+      colors: ['#ff7043', '#ab47bc', '#26c6da', '#66bb6a']
     }
-}
+  ];
+  
+  chartsData.forEach(chart => {
+    const ctx = document.getElementById(chart.id).getContext('2d');
+    new Chart(ctx, {
+      type: chart.type,
+      data: {
+        labels: chart.labels,
+        datasets: [{
+          data: chart.data,
+          backgroundColor: chart.colors
+        }]
+      }
+    });
+  });
 
-// Employee Tasks Management
-function addEmployeeTask() {
-    const task = prompt("Enter a new employee task:");
-    if (task) {
-        const taskList = document.getElementById("employee-task-list");
-        const newTask = document.createElement("li");
-        newTask.textContent = task;
-        newTask.onclick = () => completeTask(newTask);
-        taskList.appendChild(newTask);
-        updateProgress();
-    }
-}
 
-// Mark task as complete
-function completeTask(taskElement) {
-    taskElement.style.textDecoration = "line-through";
-    taskElement.style.color = "gray";
-    updateProgress();
-}
 
-// Update Task Progress
-function updateProgress() {
-    const adminTasks = document.getElementById("admin-task-list").getElementsByTagName("li");
-    const employeeTasks = document.getElementById("employee-task-list").getElementsByTagName("li");
-
-    const totalTasks = adminTasks.length + employeeTasks.length;
-    const completedTasks = Array.from(adminTasks).filter(task => task.style.textDecoration === "line-through").length +
-                           Array.from(employeeTasks).filter(task => task.style.textDecoration === "line-through").length;
-
-    const progressPercentage = totalTasks ? Math.round((completedTasks / totalTasks) * 100) : 0;
-
-    document.getElementById("progress-fill").style.width = `${progressPercentage}%`;
-    document.getElementById("progress-percentage").textContent = `${progressPercentage}% Completed`;
-}
+  

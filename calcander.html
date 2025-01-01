@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Management Calendar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .calendar-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-header h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .calendar-header .nav-btn {
+      font-size: 24px;
+      cursor: pointer;
+      color: #007BFF;
+      transition: color 0.3s ease;
+    }
+
+    .calendar-header .nav-btn:hover {
+      color: #0056b3;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .calendar-day {
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+      color: #333;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .calendar-day:hover {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    .calendar-day.disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .calendar-events {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .event {
+      background-color: #f1f1f1;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .event:hover {
+      transform: scale(1.05);
+    }
+
+    .event h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .event p {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <i class="fas fa-chevron-left nav-btn" onclick="changeMonth(-1)"></i>
+      <h2 id="month-year"></h2>
+      <i class="fas fa-chevron-right nav-btn" onclick="changeMonth(1)"></i>
+    </div>
+
+    <div class="calendar-days" id="calendar-days">
+      <!-- Calendar days will be dynamically populated here -->
+    </div>
+
+    <div class="calendar-events" id="calendar-events">
+      <!-- Events will be dynamically populated here -->
+    </div>
+  </div>
+
+  <script>
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    // Sample events
+    const events = {
+      "2024-12-10": [
+        { title: "Team Meeting", description: "Discuss project milestones" },
+        { title: "Code Review", description: "Review pull requests" }
+      ],
+      "2024-12-15": [
+        { title: "Design Sprint", description: "Focus on UI/UX improvements" }
+      ],
+      "2024-12-20": [
+        { title: "QA Testing", description: "Test the new features" }
+      ]
+    };
+
+    function loadCalendar() {
+      const monthYearElement = document.getElementById("month-year");
+      const calendarDaysElement = document.getElementById("calendar-days");
+      const calendarEventsElement = document.getElementById("calendar-events");
+
+      // Set the header with current month and year
+      monthYearElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+      // Clear previous days and events
+      calendarDaysElement.innerHTML = "";
+      calendarEventsElement.innerHTML = "";
+
+      // Get first day of the month and number of days in the month
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+      const firstDayIndex = firstDayOfMonth.getDay();
+      const totalDays = lastDayOfMonth.getDate();
+
+      // Create blank days for the previous month's trailing days
+      for (let i = 0; i < firstDayIndex; i++) {
+        const dayElement = document.createElement("div");
+        dayElement.classList.add("calendar-day", "disabled");
+        calendarDaysElement.appendChild(dayElement);
+      }
+
+      // Create day cells
+      for (let day = 1; day <= totalDays; day++) {
+        const dayElement = document.createElement("div");
+        dayElement.classList.add("calendar-day");
+        dayElement.textContent = day;
+        dayElement.onclick = () => showEvents(day);
+
+        // Add animation with GSAP
+        gsap.from(dayElement, {
+          opacity: 0,
+          y: 50,
+          duration: 0.5,
+          ease: "power4.out"
+        });
+
+        calendarDaysElement.appendChild(dayElement);
+      }
+    }
+
+    function showEvents(day) {
+      const calendarEventsElement = document.getElementById("calendar-events");
+      const selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+      // Clear existing events
+      calendarEventsElement.innerHTML = "";
+
+      if (events[selectedDate]) {
+        events[selectedDate].forEach(event => {
+          const eventElement = document.createElement("div");
+          eventElement.classList.add("event");
+
+          const eventTitle = document.createElement("h4");
+          eventTitle.textContent = event.title;
+
+          const eventDescription = document.createElement("p");
+          eventDescription.textContent = event.description;
+
+          eventElement.appendChild(eventTitle);
+          eventElement.appendChild(eventDescription);
+
+          // Add event with GSAP animation
+          gsap.from(eventElement, {
+            opacity: 0,
+            x: -100,
+            duration: 0.6,
+            ease: "power4.out"
+          });
+
+          calendarEventsElement.appendChild(eventElement);
+        });
+      } else {
+        const noEventsMessage = document.createElement("p");
+        noEventsMessage.textContent = "No events for this day.";
+        calendarEventsElement.appendChild(noEventsMessage);
+      }
+    }
+
+    function changeMonth(direction) {
+      currentMonth += direction;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+
+      loadCalendar();
+    }
+
+    // Load the initial calendar
+    loadCalendar();
+  </script>
+
+</body>
+</html>
